@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leads</title>
-    <style>
-        .lead {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 10px;
-            background-color: #f6f6f6;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <a href="{% url 'leads:lead-list' %}">retour à la liste des leads</a>
     <br/>
     <h1>Détail du lead: {{ lead.first_name }} - {{ lead.last_name }}</h1>
@@ -24,6 +8,7 @@
             Age: {{ lead.age }} <br/>
             L'agent responsable de ce lead est: {{ lead.agent }}
         </div>
-
-</body>
-</html>
+        <br/>
+    <a href="{% url 'leads:lead-update' lead.pk %}">Mise a jour</a>
+    <a href="{% url 'leads:lead-delete' lead.pk %}">Effacer</a>  
+{% endblock content %}

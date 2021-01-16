@@ -116,9 +116,4 @@ urlpatterns = [
 ]
 ```
 
-### context
-
-
-
-
 #### ...
