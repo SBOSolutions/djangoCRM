@@ -80,4 +80,45 @@ class User(AbstractUser):
 ne pas oublier de modifier le fichier settings du projet: 
 AUTH_USER_MODEL = 'leads.User'
 
+Rq: il est possible de lancer un shell dans notre terminal pour django avec la commande:
+$> python manage.py shell
 
+#### creation du superuser
+$> python manage.py createsuperuser
+
+### views
+ 
+ pour la gestion des vues dans Django la gestion est la suivante:  
+ on commence par ajouter une fonction dans le fichier views.py :  
+ exemple:  
+ ```python
+from django.shortcuts import render
+
+def home_page(request):
+    return render(request, "second_page.html")
+ ```
+
+pour le fonctionnement du render: si on ne précise rien alors on recupere la page dans le dossier templates
+à la racine de notre repertoire, sinon on utilise le templates de l'application
+
+cette fonction nous permet l'affichage d'une page html (css, JS...) sur notre application
+
+il faut déclarer l'appel à la vue dans le fichier url.py de notre projet
+exemple:  
+```python
+from django.contrib import admin
+from django.urls import path
+from leads.views import home_page
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home_page)
+]
+```
+
+### context
+
+
+
+
+#### 2H18 stop tuto.
