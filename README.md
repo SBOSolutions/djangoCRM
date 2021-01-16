@@ -48,3 +48,36 @@ TODO: en prod nous nous bancherons sur postgresql en dev pour le moment on reste
 ### Creation de l'application LEADS
 une application est un module de notre projet (leads, sales, ...)
 $> python manage.py startapp leads
+
+
+#### ajout models
+models => "tables de la base de données"
+
+ajout d'une class pour définir la table des leads
+```python
+class Lead(models.Model):
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    age = models.IntegerField(default=0)
+```
+
+prise en compte dans la base de données: 
+$> python manage.py makemigrations
+$> python manage.py migrate
+(si erreurs ou trop de modification dans la database dans ce cas on efface la base de données.)
+
+### ajout de la gestion des utilisateurs
+on ajoute une classe en héritage du model abstrait de données utilisateur 
+pour faire des potentielles modification dans le futur sans alterer le moteur django.
+```python
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    pass
+```
+
+ne pas oublier de modifier le fichier settings du projet: 
+AUTH_USER_MODEL = 'leads.User'
+
+
