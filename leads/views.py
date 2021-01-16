@@ -2,6 +2,11 @@ from leads.models import Lead, Agent
 from django.shortcuts import render, redirect
 from leads.forms import LeadForm, LeadModelForm
 
+
+def landing(request):
+    return render(request, "landing.html")
+
+
 def lead_list(request):
     leads = Lead.objects.all()
     context = {
