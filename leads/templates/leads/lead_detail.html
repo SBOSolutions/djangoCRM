@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-    <a href="/leads/">retour à la liste des leads</a>
+    <a href="{% url 'leads:lead-list' %}">retour à la liste des leads</a>
     <br/>
     <h1>Détail du lead: {{ lead.first_name }} - {{ lead.last_name }}</h1>
         <div class="lead">
