@@ -18,9 +18,10 @@
 </head>
 <body>
     <a href="/leads/">retour à la liste des leads</a>
+    <br/>
     <h1>Détail du lead: {{ lead.first_name }} - {{ lead.last_name }}</h1>
         <div class="lead">
-            Age: {{ lead.age }}
+            Age: {{ lead.age }} <br/>
             L'agent responsable de ce lead est: {{ lead.agent }}
         </div>
 

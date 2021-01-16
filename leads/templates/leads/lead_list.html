@@ -18,9 +18,13 @@
 </head>
 <body>
     <a href="/leads/create/">Nouveau lead</a>
+    <br/>
     <h1>Liste des leads</h1>
     {% for lead in leads %}
         <div class="lead">
+            <a href="/leads/{{lead.pk}}/update">Mise a jour</a>
+            <a href="/leads/{{lead.pk}}/delete">Effacer</a>
+            <br/>
             <a href="/leads/{{lead.pk}}">
             {{ lead.first_name }}
             {{ lead.last_name }}</a>
