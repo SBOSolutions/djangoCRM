@@ -17,15 +17,11 @@
     </style>
 </head>
 <body>
-    <a href="/leads/create/">Nouveau lead</a>
-    <h1>Liste des leads</h1>
-    {% for lead in leads %}
+    <a href="/leads/">retour à la liste des leads</a>
+    <h1>Détail du lead: {{ lead.first_name }} - {{ lead.last_name }}</h1>
         <div class="lead">
-            <a href="/leads/{{lead.pk}}">
-            {{ lead.first_name }}
-            {{ lead.last_name }}</a>
-            - Age: {{ lead.age }}
+            Age: {{ lead.age }}
         </div>
-    {% endfor %}
+
 </body>
 </html>
